@@ -6,68 +6,15 @@
  * Perform actions to set up the site for this profile.
  */
 function ***MACHINE_NAME***_install() {
-  // Enable some standard blocks.
-  $default_theme = 'basic';
-  theme_enable($default_theme);
-  variable_set('theme_default', $default_theme);
+  theme_enable(array('adminimal', '***MACHINE_NAME***'));
+  variable_set('theme_default', '***MACHINE_NAME***');
+  variable_set('admin_theme', 'adminimal');
+  variable_set('node_admin_theme', 1);
   
-  $values = array(
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'navigation',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'management',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 1,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
-    ),
-  );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
-  foreach ($values as $record) {
-    $query->values($record);
-  }
-  $query->execute();
+  variable_set('jquery_update_jquery_version', '1.9');
+  variable_set('jquery_update_jquery_cdn', 'google');
+  
+  variable_set('pathauto_transliterate', 1);
 
   // Allow visitor account creation, but with administrative approval.
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
@@ -75,4 +22,217 @@ function ***MACHINE_NAME***_install() {
   // Enable default permissions for system roles.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+  
+  // Create a default role for site administrators (if it does not yet exist),
+  // and assign all available permissions.
+  if (!$admin_role = user_role_load_by_name('administrator')) {
+    $admin_role = new stdClass();
+    $admin_role->name = 'administrator';
+    $admin_role->weight = 2;
+    user_role_save($admin_role);
+  }
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  _***MACHINE_NAME***_install_filters();
+}
+
+/**
+ * Implements hook_kw_manifests_info().
+ */
+function ***MACHINE_NAME***_kw_manifests_info() {
+  $manifests = array();
+
+  $manifests['development'] = array(
+    'callback' => '***MACHINE_NAME***_manifest_development',
+    'require environment' => array('development')
+  );
+
+  $manifests['image_toolkit'] = array(
+    'callback' => '***MACHINE_NAME***_manifest_image_toolkit',
+  );
+
+  $manifests['wysiwyg_profiles'] = array(
+    'callback' => '***MACHINE_NAME***_manifest_wysiwyg_profiles',
+  );
+  return $manifests;
+}
+
+function ***MACHINE_NAME***_manifest_development() {
+  variable_set('context_reaction_debug_enable_global', 1);
+  variable_set('jquery_update_jquery_admin_version', '1.5');
+  variable_set('jquery_update_compression_type', 'none');
+  variable_set('jquery_update_jquery_cdn', 'none');
+}
+
+/**
+ * Set up image toolkit settings
+ */
+function ***MACHINE_NAME***_manifest_image_toolkit() {
+  module_load_include('inc', 'system', 'system.admin');
+  $form_state = array();
+  $form_state['values']['image_jpeg_quality'] = '100';
+  $form_state['values']['op'] = 'Save configuration';
+  drupal_form_submit('system_image_toolkit_settings', $form_state);
+}
+
+function ***MACHINE_NAME***_manifest_wysiwyg_profiles() {
+  $wysiwyg_profiles['full_html'] = array(
+    'editor' => 'ckeditor',
+    'settings' => array(
+      'default' => 1,
+      'user_choose' => 0,
+      'show_toggle' => 1,
+      'add_to_summaries' => 1,
+      'theme' => '',
+      'language' => 'en',
+      'buttons' => array(
+        'default' => array(
+          'Bold' => 1,
+          'Italic' => 1,
+          'Underline' => 1,
+          'Strike' => 1,
+          'JustifyLeft' => 1,
+          'JustifyCenter' => 1,
+          'JustifyRight' => 1,
+          'JustifyBlock' => 1,
+          'BidiLtr' => 1,
+          'BidiRtl' => 1,
+          'BulletedList' => 1,
+          'NumberedList' => 1,
+          'Outdent' => 1,
+          'Indent' => 1,
+          'Undo' => 1,
+          'Redo' => 1,
+          'Link' => 1,
+          'Unlink' => 1,
+          'Anchor' => 1,
+          'Image' => 1,
+          'TextColor' => 1,
+          'BGColor' => 1,
+          'Superscript' => 1,
+          'Subscript' => 1,
+          'Blockquote' => 1,
+          'Source' => 1,
+          'HorizontalRule' => 1,
+          'Cut' => 1,
+          'Copy' => 1,
+          'Paste' => 1,
+          'PasteText' => 1,
+          'PasteFromWord' => 1,
+          'ShowBlocks' => 1,
+          'RemoveFormat' => 1,
+          'SpecialChar' => 1,
+          'Format' => 1,
+          'Font' => 1,
+          'FontSize' => 1,
+          'Styles' => 1,
+          'Table' => 1,
+          'SelectAll' => 1,
+          'Find' => 1,
+          'Replace' => 1,
+          'Flash' => 1,
+          'Smiley' => 1,
+          'CreateDiv' => 1,
+          'Iframe' => 1,
+          'Maximize' => 1,
+          'SpellChecker' => 1,
+          'Scayt' => 1,
+          'About' => 1,
+          'Templates' => 1,
+        ),
+        'drupal' => array(
+          'break' => 1,
+        )
+      ),
+      'toolbarLocation' => 'top',
+      'resize_enabled' => 1,
+      'default_toolbar_grouping' => 0,
+      'simple_source_formatting' => 0,
+      'acf_mode' => 0,
+      'acf_allowed_content' => '',
+      'css_setting' => 'theme',
+      'css_path' => '',
+      'stylesSet' => '',
+      'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
+      'advanced__active_tab' => 'edit-basic',
+      'forcePasteAsPlainText' => 0
+    )
+  );
+  foreach ($wysiwyg_profiles as $format => $values) {
+    db_merge('wysiwyg')
+      ->key(array('format' => $format))
+      ->fields(array(
+        'editor' => $values['editor'],
+        'settings' => serialize($values['settings']),
+      ))
+      ->execute();
+  }
+  wysiwyg_profile_cache_clear();
+}
+
+/**
+ * Create standard input filters.
+ */
+_***MACHINE_NAME***_install_filters() {
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
 }
