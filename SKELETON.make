@@ -32,7 +32,7 @@ projects[rules][subdir]            = "contrib"
 projects[rules][version]           = "2.7"
 
 projects[configuration][subdir]    = "contrib"
-projects[configuration][version]   co= "2.x-dev"
+projects[configuration][version]   = "2.x-dev"
 
 ; Layout & theming
 projects[ctools][subdir]           = "contrib"
