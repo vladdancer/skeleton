@@ -41,8 +41,8 @@ projects[configuration][subdir]    = "contrib"
 projects[configuration][version]   = "2.x-dev"
 
 ; Layout & theming
-projects[ctools][subdir]           = "contrib"
-projects[ctools][version]          = "3.5
+projects[context][subdir]          = "contrib"
+projects[context][version]         = "3.5
 
 projects[context_omega][subdir]    = "contrib"
 projects[context_omega][version]   = "1.1
