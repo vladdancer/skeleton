@@ -17,8 +17,6 @@ dependencies[] = contextual
 
 ; Contrib
 dependencies[] = jquery_update
-dependencies[] = admin_menu
-dependencies[] = adminimal_admin_menu
 dependencies[] = ctools
 dependencies[] = context
 dependencies[] = context_layouts
@@ -40,9 +38,15 @@ dependencies[] = variable
 dependencies[] = i18n_field
 dependencies[] = transliteration
 
+; Administration
+dependencies[] = module_filter
+dependencies[] = fpa
+dependencies[] = admin_menu
+dependencies[] = adminimal_admin_menu
+dependencies[] = bundle_copy
+
 dependencies[] = kw_manifests
 
-env_dependencies[development][] = bundle_copy
 env_dependencies[development][] = field_ui
 env_dependencies[development][] = diff
 env_dependencies[development][] = ds_ui
@@ -51,7 +55,6 @@ env_dependencies[development][] = devel
 env_dependencies[development][] = devel_generate
 env_dependencies[development][] = maillog
 env_dependencies[development][] = rules_admin
-env_dependencies[development][] = module_filter
 env_dependencies[development][] = context_ui
 env_dependencies[development][] = contextual
 env_dependencies[development][] = dblog
