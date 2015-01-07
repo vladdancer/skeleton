@@ -44,6 +44,7 @@ dependencies[] = fpa
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
 dependencies[] = bundle_copy
+dependencies[] = configuration
 
 dependencies[] = kw_manifests
 
@@ -58,5 +59,6 @@ env_dependencies[development][] = rules_admin
 env_dependencies[development][] = context_ui
 env_dependencies[development][] = contextual
 env_dependencies[development][] = dblog
+env_dependencies[development][] = configuration_ui
 
 files[] = ***MACHINE_NAME***.profile
