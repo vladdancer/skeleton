@@ -180,7 +180,7 @@ function ***MACHINE_NAME***_manifest_wysiwyg_profiles() {
 /**
  * Create standard input filters.
  */
-_***MACHINE_NAME***_install_filters() {
+function _***MACHINE_NAME***_install_filters() {
   $filtered_html_format = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
