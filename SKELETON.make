@@ -92,27 +92,32 @@ projects[module_filter][version]   = "2.x-dev"
 projects[inline_entity_form][subdir]  = "contrib"
 projects[inline_entity_form][version] = "1.x-dev"
 
-; Development modules
-projects[devel][subdir]            = "contrib"
-projects[devel][version]           = "1.5"
-
-projects[diff][subdir]             = "contrib"
-projects[diff][version]            = "3.2"
-
-projects[devel_themer][subdir]     = "contrib"
-projects[devel_themer][version]    = "1.x-dev"
-; Required by devel_themer
-projects[simplehtmldom][subdir]    = "contrib"
-projects[simplehtmldom][version]   = "1.12"
-
-projects[maillog][subdir]          = "contrib"
-projects[maillog][version]         = "1.0-alpha1"
-
 projects[fpa][subdir]              = "contrib"
 projects[fpa][version]             = "2.6"
 
 projects[bundle_copy][subdir]      = "contrib"
 projects[bundle_copy][version]     = "2.x-dev"
+
+; Development modules
+projects[devel][subdir]            = "development"
+projects[devel][version]           = "1.5"
+
+projects[diff][subdir]             = "development"
+projects[diff][version]            = "3.2"
+
+projects[devel_themer][subdir]     = "development"
+projects[devel_themer][version]    = "1.x-dev"
+; Required by devel_themer
+projects[simplehtmldom][subdir]    = "development"
+projects[simplehtmldom][version]   = "1.12"
+
+projects[maillog][subdir]          = "development"
+projects[maillog][version]         = "1.0-alpha1"
+
+projects[kw_manifests][type]           = "module"
+projects[kw_manifests][download][type] = "git"
+projects[kw_manifests][download][url]  = "git://github.com/kraftwagen/kw-manifests.git"
+projects[kw_manifests][subdir]         = "development"
 
 ; Libraries
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
