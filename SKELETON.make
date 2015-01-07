@@ -53,6 +53,10 @@ projects[ds][version]              = "2.7"
 projects[field_group][subdir]      = "contrib"
 projects[field_group][version]     = "1.4"
 
+; Language
+projects[i18n][subdir]  = "contrib"
+projects[i18n][version] = "1.11"
+
 ; Helper modules
 projects[transliteration][version] = "3.1"
 projects[transliteration][subdir]  = "contrib"
@@ -72,6 +76,9 @@ projects[xautoload][version]       = "5.1"
 projects[better_exposed_filters][subdir]   = "contrib"
 projects[better_exposed_filters][version]  = "3.0"
 
+projects[variable][subdir]  = "contrib"
+projects[variable][version] = "2.5"
+
 ; Administration modules
 projects[admin_menu][subdir]       = "contrib"
 projects[admin_menu][version]      = "3.0-rc5"
@@ -81,6 +88,9 @@ projects[adminimal_admin_menu][version] = "1.5"
 
 projects[module_filter][subdir]    = "contrib"
 projects[module_filter][version]   = "2.x-dev"
+
+projects[inline_entity_form][subdir]  = "contrib"
+projects[inline_entity_form][version] = "1.x-dev"
 
 ; Development modules
 projects[devel][subdir]            = "contrib"
