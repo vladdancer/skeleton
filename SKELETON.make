@@ -11,6 +11,12 @@ projects[ctools][version]          = "3.5"
 projects[jquery_update][subdir]    = "contrib"
 projects[jquery_update][version]   = "2.4"
 
+projects[ajax_register][type]               = "module"
+projects[ajax_register][download][type]     = "git"
+projects[ajax_register][download][url]      = "http://git.drupal.org/project/ajax_register.git"
+projects[ajax_register][download][revision] = "ddd430bb198dbcf99231c08ac277ad886c09091d"
+projects[ajax_register][subdir]             = "contrib"
+
 ; Content modules
 projects[entity][subdir]           = "contrib"
 projects[entity][version]          = "1.5"
@@ -62,6 +68,9 @@ projects[libraries][version]       = "2.2"
 
 projects[xautoload][subdir]        = "contrib"
 projects[xautoload][version]       = "5.1"
+
+projects[better_exposed_filters][subdir]   = "contrib"
+projects[better_exposed_filters][version]  = "3.0"
 
 ; Administration modules
 projects[admin_menu][subdir]       = "contrib"
