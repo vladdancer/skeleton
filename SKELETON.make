@@ -42,10 +42,10 @@ projects[configuration][version]   = "2.x-dev"
 
 ; Layout & theming
 projects[context][subdir]          = "contrib"
-projects[context][version]         = "3.5
+projects[context][version]         = "3.5"
 
 projects[context_omega][subdir]    = "contrib"
-projects[context_omega][version]   = "1.1
+projects[context_omega][version]   = "1.1"
 
 projects[ds][subdir]               = "contrib"
 projects[ds][version]              = "2.7"
