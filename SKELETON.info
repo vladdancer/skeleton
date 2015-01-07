@@ -1,14 +1,59 @@
 name = ***HUMAN_NAME***
-description = Install site for ***HUMAN_NAME***
+description = Install profile for ***HUMAN_NAME***
 core = 7.x
 
+; Core
+dependencies[] = locale
+dependencies[] = list
+dependencies[] = text
+dependencies[] = options
+dependencies[] = image
+dependencies[] = file
+dependencies[] = menu
+dependencies[] = path
+dependencies[] = taxonomy
 dependencies[] = block
-dependencies[] = dblog
+dependencies[] = contextual
+
+; Contrib
+dependencies[] = jquery_update
+dependencies[] = admin_menu
+dependencies[] = adminimal_admin_menu
+dependencies[] = ctools
+dependencies[] = context
+dependencies[] = context_layouts
+dependencies[] = context_omega
+dependencies[] = libraries
+dependencies[] = wysiwyg
+dependencies[] = bean
+dependencies[] = pathauto
+dependencies[] = entity
+dependencies[] = views
+dependencies[] = rules
+dependencies[] = ds_extras
+dependencies[] = inline_entity_form
+dependencies[] = ajax_register
+dependencies[] = better_exposed_filters
+
+; Languages
+dependencies[] = variable
+dependencies[] = i18n_field
+dependencies[] = transliteration
 
 dependencies[] = kw_manifests
-dependencies[] = features
 
+env_dependencies[development][] = bundle_copy
 env_dependencies[development][] = field_ui
-env_dependencies[development][] = strongarm
+env_dependencies[development][] = diff
+env_dependencies[development][] = ds_ui
+env_dependencies[development][] = views_ui
+env_dependencies[development][] = devel
+env_dependencies[development][] = devel_generate
+env_dependencies[development][] = maillog
+env_dependencies[development][] = rules_admin
+env_dependencies[development][] = module_filter
+env_dependencies[development][] = context_ui
+env_dependencies[development][] = contextual
+env_dependencies[development][] = dblog
 
 files[] = ***MACHINE_NAME***.profile
