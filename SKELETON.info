@@ -21,6 +21,7 @@ dependencies[] = ctools
 dependencies[] = context
 dependencies[] = context_layouts
 dependencies[] = context_omega
+dependencies[] = features
 dependencies[] = libraries
 dependencies[] = wysiwyg
 dependencies[] = bean
@@ -29,7 +30,6 @@ dependencies[] = entity
 dependencies[] = views
 dependencies[] = rules
 dependencies[] = ds_extras
-dependencies[] = inline_entity_form
 dependencies[] = ajax_register
 dependencies[] = better_exposed_filters
 
@@ -43,8 +43,6 @@ dependencies[] = module_filter
 dependencies[] = fpa
 dependencies[] = admin_menu
 dependencies[] = adminimal_admin_menu
-dependencies[] = bundle_copy
-dependencies[] = configuration
 
 dependencies[] = kw_manifests
 
@@ -54,11 +52,14 @@ env_dependencies[development][] = ds_ui
 env_dependencies[development][] = views_ui
 env_dependencies[development][] = devel
 env_dependencies[development][] = devel_generate
+env_dependencies[development][] = devel_themer
+
 env_dependencies[development][] = maillog
 env_dependencies[development][] = rules_admin
 env_dependencies[development][] = context_ui
 env_dependencies[development][] = contextual
 env_dependencies[development][] = dblog
-env_dependencies[development][] = configuration_ui
+env_dependencies[development][] = bundle_copy
+
 
 files[] = ***MACHINE_NAME***.profile
