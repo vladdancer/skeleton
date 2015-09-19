@@ -6,10 +6,10 @@ projects[pathauto][version]        = "1.2"
 projects[pathauto][subdir]         = "contrib"
 
 projects[ctools][subdir]           = "contrib"
-projects[ctools][version]          = "1.7"
+projects[ctools][version]          = "1.9"
 
 projects[jquery_update][subdir]    = "contrib"
-projects[jquery_update][version]   = "2.5"
+projects[jquery_update][version]   = "2.6"
 
 projects[ajax_register][type]               = "module"
 projects[ajax_register][download][type]     = "git"
@@ -25,11 +25,11 @@ projects[bean][subdir]             = "contrib"
 projects[bean][version]            = "1.9"
 
 projects[views][subdir]            = "contrib"
-projects[views][version]           = "3.10"
+projects[views][version]           = "3.11"
 
 ; @TODO: Replace to git revision
 projects[wysiwyg][subdir]          = "contrib"
-projects[wysiwyg][version]         = "2.x-dev"
+projects[wysiwyg][version]         = "2.2"
 
 ; Deployment & configuration modules
 projects[strongarm][version]       = "2.0"
@@ -39,7 +39,7 @@ projects[rules][subdir]            = "contrib"
 projects[rules][version]           = "2.9"
 
 projects[features][subdir]         = "contrib"
-projects[features][version]        = "2.4"
+projects[features][version]        = "2.6"
 
 projects[variable][subdir]         = "contrib"
 projects[variable][version]        = "2.5"
@@ -52,14 +52,14 @@ projects[context_omega][subdir]    = "contrib"
 projects[context_omega][version]   = "1.1"
 
 projects[ds][subdir]               = "contrib"
-projects[ds][version]              = "2.7"
+projects[ds][version]              = "2.11"
 
 projects[field_group][subdir]      = "contrib"
 projects[field_group][version]     = "1.4"
 
 ; Language
 projects[i18n][subdir]  = "contrib"
-projects[i18n][version] = "1.12"
+projects[i18n][version] = "1.13"
 
 ; Helper modules
 projects[transliteration][version] = "3.2"
@@ -75,7 +75,7 @@ projects[libraries][subdir]        = "contrib"
 projects[libraries][version]       = "2.2"
 
 projects[xautoload][subdir]        = "contrib"
-projects[xautoload][version]       = "5.1"
+projects[xautoload][version]       = "5.5"
 
 projects[better_exposed_filters][subdir]   = "contrib"
 projects[better_exposed_filters][version]  = "3.2"
@@ -86,7 +86,7 @@ projects[admin_menu][subdir]       = "contrib"
 projects[admin_menu][version]      = "3.0-rc5"
 
 projects[adminimal_admin_menu][subdir]  = "contrib"
-projects[adminimal_admin_menu][version] = "1.5"
+projects[adminimal_admin_menu][version] = "1.6"
 
 projects[module_filter][subdir]    = "contrib"
 projects[module_filter][version]   = "2.0"
@@ -103,13 +103,13 @@ projects[diff][subdir]             = "development"
 projects[diff][version]            = "3.2"
 
 projects[devel_themer][subdir]     = "development"
-projects[devel_themer][version]    = "1.x-dev"
+projects[devel_themer][version]    = "1.-dev"
 ; Required by devel_themer
 projects[simplehtmldom][subdir]    = "development"
 projects[simplehtmldom][version]   = "1.12"
 
 projects[bundle_copy][subdir]      = "contrib"
-projects[bundle_copy][version]     = "2.x-dev"
+projects[bundle_copy][version]     = "2.-dev"
 
 projects[maillog][subdir]          = "development"
 projects[maillog][version]         = "1.0-alpha1"
@@ -129,8 +129,8 @@ libraries[ckeditor][directory_name]  = "ckeditor"
 libraries[ckeditor][type]            = "library"
 
 ; Themes
-projects[adminimal_theme][version]   = "1.21"
-projects[omega][version]             = "4.3"
+projects[adminimal_theme][version]   = "1.22"
+projects[omega][version]             = "4.4"
 
 ; Translations
 ;translations[] = ru
